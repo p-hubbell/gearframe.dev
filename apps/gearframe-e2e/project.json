@@ -1,0 +1,9 @@
+{
+  "name": "gearframe-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/gearframe-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["gearframe"],
+  "// targets": "to see all targets run: nx show project gearframe-e2e --web",
+  "targets": {}
+}
