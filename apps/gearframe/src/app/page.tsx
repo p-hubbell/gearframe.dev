@@ -10,41 +10,78 @@ import {
   WrapItem,
   Box,
   ChakraProvider,
+  Skeleton,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-const designDirectionImgs = [
-  '/imgs/design-1.png',
-  '/imgs/design-2.png',
-  '/imgs/design-3.png',
-  '/imgs/design-4.png',
-];
+const imageLoader = ({ src }: { src: string }) => src;
 
-const ImageWrap = (imgs: string[]) => {
+const DesignDirectionSkeletons = () =>
+  Array.from({ length: 4 }, (_, idx) => (
+    <Skeleton key={`skeleton-${idx}`} height="200px" width="200px" />
+  ));
+
+const ImageWrap = (imgSrcs?: string[]) => {
   return (
     <Wrap spacing="16px" justify="center">
-      {imgs.map((img, idx) => (
-        <WrapItem key={`img-${idx}`}>
-          <Image src={img} width={200} height={200} alt={`img ${idx}`} />
-        </WrapItem>
-      ))}
+      {imgSrcs ? (
+        imgSrcs.map((imgSrc, idx) => (
+          <WrapItem key={`img-${idx}`}>
+            <Image
+              src={imgSrc}
+              loader={imageLoader}
+              width={200}
+              height={200}
+              alt={`img ${idx}`}
+            />
+          </WrapItem>
+        ))
+      ) : (
+        <DesignDirectionSkeletons />
+      )}
     </Wrap>
   );
 };
 
 export default function Index() {
+  const [logoUrl, setLogoUrl] = useState<string>();
+  const [designDirectionUrls, setDesignDirectionUrls] = useState<
+    string[] | undefined
+  >(undefined);
+
+  useEffect(() => {
+    const fetchValue = async () => {
+      try {
+        const res = await fetch('/api');
+        const blobs = await res.json();
+        setLogoUrl(blobs.data.logo);
+        setDesignDirectionUrls(blobs.data.designDirection);
+      } catch (error) {
+        console.error('Error fetching blob store data:', error);
+      }
+    };
+
+    fetchValue();
+  }, []);
+
   return (
     <ChakraProvider>
       <Box marginY="32px">
         <VStack spacing="32px">
           <VStack spacing="16px">
             <Heading as="h1">gearframe - stay tuned...</Heading>
-            <Image
-              src="/imgs/logo-square.png"
-              width={250}
-              height={250}
-              alt="gearframe logo"
-            />
+            {logoUrl ? (
+              <Image
+                src={logoUrl}
+                loader={imageLoader}
+                width={250}
+                height={250}
+                alt="gearframe logo"
+              />
+            ) : (
+              <Skeleton height="250px" width="250px" />
+            )}
             <Container>
               <Text fontSize="lg">
                 an evolving playground for implementing project and design ideas
@@ -56,7 +93,7 @@ export default function Index() {
           </VStack>
           <VStack spacing="16px">
             <Heading as="h2">design direction</Heading>
-            {ImageWrap(designDirectionImgs)}
+            {ImageWrap(designDirectionUrls)}
           </VStack>
         </VStack>
       </Box>

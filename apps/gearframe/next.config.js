@@ -19,4 +19,9 @@ const plugins = [
   withNx,
 ];
 
-module.exports = composePlugins(...plugins)(nextConfig);
+module.exports = {
+  ...composePlugins(...plugins)(nextConfig),
+  env: {
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+  },
+};
