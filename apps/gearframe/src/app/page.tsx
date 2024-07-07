@@ -15,6 +15,7 @@ import {
 import Image from 'next/image';
 import { blueScreen } from '@/fonts';
 import fontStyles from '@/fonts/styles';
+import { combineClasses } from '@gearframe.dev/utils';
 import { useEffect, useState } from 'react';
 
 const imageLoader = ({ src }: { src: string }) => src;
@@ -67,10 +68,6 @@ export default function Index() {
     fetchValue();
   }, []);
 
-  const combineClasses = (...classes: string[]) => {
-    return classes.join(' ');
-  };
-
   return (
     <ChakraProvider>
       <Box className={combineClasses(blueScreen.variable)} marginY="32px">
@@ -97,7 +94,7 @@ export default function Index() {
             </Container>
             <Link
               className={fontStyles.blueScreen}
-              fontSize='xl'
+              fontSize="xl"
               href="https://github.com/p-hubbell/gearframe.dev"
               isExternal
             >
