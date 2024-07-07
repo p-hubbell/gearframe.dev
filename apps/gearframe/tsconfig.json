@@ -19,7 +19,12 @@
     "types": [
       "jest",
       "node"
-    ]
+    ],
+    "baseUrl": "./src/app",
+    "paths": {
+      "@/fonts": ["./styles/fonts/fonts"],
+      "@/fonts/styles": ["./styles/fonts/fonts.module.css"]
+    }
   },
   "include": [
     "**/*.ts",

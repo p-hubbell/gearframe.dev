@@ -13,6 +13,8 @@ import {
   Skeleton,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { blueScreen } from '@/fonts';
+import fontStyles from '@/fonts/styles';
 import { useEffect, useState } from 'react';
 
 const imageLoader = ({ src }: { src: string }) => src;
@@ -67,10 +69,12 @@ export default function Index() {
 
   return (
     <ChakraProvider>
-      <Box marginY="32px">
+      <Box className={blueScreen.variable} marginY="32px">
         <VStack spacing="32px">
           <VStack spacing="16px">
-            <Heading as="h1">gearframe - stay tuned...</Heading>
+            <Heading className={fontStyles.blueScreen} as="h1" size='4xl'>
+              GEARFRAME
+            </Heading>
             {logoUrl ? (
               <Image
                 src={logoUrl}
@@ -92,7 +96,7 @@ export default function Index() {
             </Link>
           </VStack>
           <VStack spacing="16px">
-            <Heading as="h2">design direction</Heading>
+            <Heading as="h2" size='3xl' className={fontStyles.blueScreen}>DESIGN DIRECTION</Heading>
             {ImageWrap(designDirectionUrls)}
           </VStack>
         </VStack>
