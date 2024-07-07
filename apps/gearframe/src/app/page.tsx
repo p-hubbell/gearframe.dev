@@ -67,12 +67,16 @@ export default function Index() {
     fetchValue();
   }, []);
 
+  const combineClasses = (...classes: string[]) => {
+    return classes.join(' ');
+  };
+
   return (
     <ChakraProvider>
-      <Box className={blueScreen.variable} marginY="32px">
+      <Box className={combineClasses(blueScreen.variable)} marginY="32px">
         <VStack spacing="32px">
           <VStack spacing="16px">
-            <Heading className={fontStyles.blueScreen} as="h1" size='4xl'>
+            <Heading className={fontStyles.blueScreen} as="h1" size="4xl">
               GEARFRAME
             </Heading>
             {logoUrl ? (
@@ -87,16 +91,23 @@ export default function Index() {
               <Skeleton height="250px" width="250px" />
             )}
             <Container>
-              <Text fontSize="lg">
+              <Text className={fontStyles.blueScreen} fontSize="2xl">
                 an evolving playground for implementing project and design ideas
               </Text>
             </Container>
-            <Link href="https://github.com/p-hubbell/gearframe.dev" isExternal>
+            <Link
+              className={fontStyles.blueScreen}
+              fontSize='xl'
+              href="https://github.com/p-hubbell/gearframe.dev"
+              isExternal
+            >
               codebase on github <ExternalLinkIcon mx="2px" />
             </Link>
           </VStack>
           <VStack spacing="16px">
-            <Heading as="h2" size='3xl' className={fontStyles.blueScreen}>DESIGN DIRECTION</Heading>
+            <Heading as="h2" size="3xl" className={fontStyles.blueScreen}>
+              DESIGN DIRECTION
+            </Heading>
             {ImageWrap(designDirectionUrls)}
           </VStack>
         </VStack>
