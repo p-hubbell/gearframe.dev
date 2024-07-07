@@ -69,46 +69,59 @@ export default function Index() {
   }, []);
 
   return (
-    <ChakraProvider>
-      <Box className={combineClasses(blueScreen.variable)} marginY="32px">
-        <VStack spacing="32px">
-          <VStack spacing="16px">
-            <Heading className={fontStyles.blueScreen} as="h1" size="4xl">
-              GEARFRAME
-            </Heading>
-            {logoUrl ? (
-              <Image
-                src={logoUrl}
-                loader={imageLoader}
-                width={250}
-                height={250}
-                alt="gearframe logo"
-              />
-            ) : (
-              <Skeleton height="250px" width="250px" />
-            )}
-            <Container>
-              <Text className={fontStyles.blueScreen} fontSize="2xl">
-                an evolving playground for implementing project and design ideas
-              </Text>
-            </Container>
-            <Link
+    <Box className={combineClasses(blueScreen.variable)} marginY="32px">
+      <VStack spacing="32px">
+        <VStack spacing="16px">
+          <Heading
+            className={fontStyles.blueScreen}
+            color="green.500"
+            as="h1"
+            size="4xl"
+          >
+            GEARFRAME
+          </Heading>
+          {logoUrl ? (
+            <Image
+              src={logoUrl}
+              loader={imageLoader}
+              width={250}
+              height={250}
+              alt="gearframe logo"
+            />
+          ) : (
+            <Skeleton height="250px" width="250px" />
+          )}
+          <Container>
+            <Text
               className={fontStyles.blueScreen}
-              fontSize="xl"
-              href="https://github.com/p-hubbell/gearframe.dev"
-              isExternal
+              color="green.500"
+              fontSize="2xl"
             >
-              codebase on github <ExternalLinkIcon mx="2px" />
-            </Link>
-          </VStack>
-          <VStack spacing="16px">
-            <Heading as="h2" size="3xl" className={fontStyles.blueScreen}>
-              DESIGN DIRECTION
-            </Heading>
-            {ImageWrap(designDirectionUrls)}
-          </VStack>
+              an evolving playground for implementing project and design ideas
+            </Text>
+          </Container>
+          <Link
+            className={fontStyles.blueScreen}
+            color="green.500"
+            fontSize="xl"
+            href="https://github.com/p-hubbell/gearframe.dev"
+            isExternal
+          >
+            codebase on github <ExternalLinkIcon mx="2px" />
+          </Link>
         </VStack>
-      </Box>
-    </ChakraProvider>
+        <VStack spacing="16px">
+          <Heading
+            className={fontStyles.blueScreen}
+            color="green.500"
+            as="h2"
+            size="3xl"
+          >
+            DESIGN DIRECTION
+          </Heading>
+          {ImageWrap(designDirectionUrls)}
+        </VStack>
+      </VStack>
+    </Box>
   );
 }

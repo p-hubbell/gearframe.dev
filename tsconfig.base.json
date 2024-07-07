@@ -17,7 +17,8 @@
     "paths": {
       "@gearframe.dev/utils": ["libs/gearframe/utils/src/index.ts"],
       "@/fonts": ["apps/gearframe/src/app/styles/fonts/fonts"],
-      "@/fonts/styles": ["apps/gearframe/src/app/styles/fonts/fonts.module.css"]
+      "@/fonts/styles": ["apps/gearframe/src/app/styles/fonts/fonts.module.css"],
+      "@/theme": ["apps/gearframe/src/app/styles/theme/ThemeProvider"],
     }
   },
   "exclude": ["node_modules", "tmp"]
