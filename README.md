@@ -1,4 +1,4 @@
-# gearframe - <a href="gearframe.dev" target="_blank">gearframe.dev<a>
+# gearframe - <a href="https://www.gearframe.dev" target="_blank">gearframe.dev<a>
 
 an evolving playground for implementing project and design ideas.
 
