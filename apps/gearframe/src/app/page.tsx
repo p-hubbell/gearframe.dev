@@ -9,10 +9,12 @@ import {
   Wrap,
   WrapItem,
   Box,
-  ChakraProvider,
   Skeleton,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { blueScreen } from '@/fonts';
+import fontStyles from './styles/fonts/fonts.module.css';
+import { combineClasses } from '@gearframe.dev/utils';
 import { useEffect, useState } from 'react';
 
 const imageLoader = ({ src }: { src: string }) => src;
@@ -66,37 +68,59 @@ export default function Index() {
   }, []);
 
   return (
-    <ChakraProvider>
-      <Box marginY="32px">
-        <VStack spacing="32px">
-          <VStack spacing="16px">
-            <Heading as="h1">gearframe - stay tuned...</Heading>
-            {logoUrl ? (
-              <Image
-                src={logoUrl}
-                loader={imageLoader}
-                width={250}
-                height={250}
-                alt="gearframe logo"
-              />
-            ) : (
-              <Skeleton height="250px" width="250px" />
-            )}
-            <Container>
-              <Text fontSize="lg">
-                an evolving playground for implementing project and design ideas
-              </Text>
-            </Container>
-            <Link href="https://github.com/p-hubbell/gearframe.dev" isExternal>
-              codebase on github <ExternalLinkIcon mx="2px" />
-            </Link>
-          </VStack>
-          <VStack spacing="16px">
-            <Heading as="h2">design direction</Heading>
-            {ImageWrap(designDirectionUrls)}
-          </VStack>
+    <Box className={combineClasses(blueScreen.variable)} marginY="32px">
+      <VStack spacing="32px">
+        <VStack spacing="16px">
+          <Heading
+            className={fontStyles.blueScreen}
+            color="green.500"
+            as="h1"
+            size="4xl"
+          >
+            GEARFRAME
+          </Heading>
+          {logoUrl ? (
+            <Image
+              src={logoUrl}
+              loader={imageLoader}
+              width={250}
+              height={250}
+              alt="gearframe logo"
+            />
+          ) : (
+            <Skeleton height="250px" width="250px" />
+          )}
+          <Container>
+            <Text
+              className={fontStyles.blueScreen}
+              color="green.500"
+              fontSize="2xl"
+            >
+              an evolving playground for implementing project and design ideas
+            </Text>
+          </Container>
+          <Link
+            className={fontStyles.blueScreen}
+            color="green.500"
+            fontSize="xl"
+            href="https://github.com/p-hubbell/gearframe.dev"
+            isExternal
+          >
+            codebase on github <ExternalLinkIcon mx="2px" />
+          </Link>
         </VStack>
-      </Box>
-    </ChakraProvider>
+        <VStack spacing="16px">
+          <Heading
+            className={fontStyles.blueScreen}
+            color="green.500"
+            as="h2"
+            size="3xl"
+          >
+            DESIGN DIRECTION
+          </Heading>
+          {ImageWrap(designDirectionUrls)}
+        </VStack>
+      </VStack>
+    </Box>
   );
 }

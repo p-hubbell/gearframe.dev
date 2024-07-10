@@ -1,4 +1,5 @@
 import './global.css';
+import ThemeProvider from './styles/theme/ThemeProvider';
 
 export const metadata = {
   title: 'Welcome to gearframe',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
