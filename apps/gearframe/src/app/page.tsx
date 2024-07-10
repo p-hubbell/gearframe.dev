@@ -9,12 +9,11 @@ import {
   Wrap,
   WrapItem,
   Box,
-  ChakraProvider,
   Skeleton,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { blueScreen } from '@/fonts';
-import fontStyles from '@/fonts/styles';
+import fontStyles from './styles/fonts/fonts.module.css';
 import { combineClasses } from '@gearframe.dev/utils';
 import { useEffect, useState } from 'react';
 
