@@ -14,6 +14,7 @@ import {
 import Image from 'next/image';
 import { blueScreen } from '@/fonts';
 import fontStyles from './styles/fonts/fonts.module.css';
+import logoStyles from './styles/images/logo.module.css';
 import { combineClasses } from '@gearframe.dev/utils';
 import { useEffect, useState } from 'react';
 
@@ -57,6 +58,7 @@ export default function Index() {
       try {
         const res = await fetch('/api');
         const blobs = await res.json();
+        console.log('debug', blobs.data.logo);
         setLogoUrl(blobs.data.logo);
         setDesignDirectionUrls(blobs.data.designDirection);
       } catch (error) {
@@ -81,6 +83,7 @@ export default function Index() {
           </Heading>
           {logoUrl ? (
             <Image
+              className={logoStyles.animatedLogo}
               src={logoUrl}
               loader={imageLoader}
               width={250}

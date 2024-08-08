@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   const data: BlobStoreData = {};
   const { blobs } = await list();
   for (const blob of blobs) {
-    if (blob.pathname.includes('assets/gifs/logo/')) {
+    if (blob.pathname.includes('assets/imgs/logo/')) {
       data.logo = blob.downloadUrl;
     } else if (blob.downloadUrl.includes('assets/imgs/design-direction/design')) {
       data.designDirection = data.designDirection || [];
