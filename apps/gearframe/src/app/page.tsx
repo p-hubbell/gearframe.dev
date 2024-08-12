@@ -12,10 +12,7 @@ import {
   Skeleton,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { blueScreen } from '@/fonts';
-import fontStyles from './styles/fonts/fonts.module.css';
-import logoStyles from './styles/images/logo.module.css';
-import { combineClasses } from '@gearframe.dev/utils';
+import { fontStyles, logoStyles } from '@gearframe.dev/styles';
 import { useEffect, useState } from 'react';
 
 const imageLoader = ({ src }: { src: string }) => src;
@@ -70,17 +67,9 @@ export default function Index() {
   }, []);
 
   return (
-    <Box className={combineClasses(blueScreen.variable)} marginY="32px">
+    <Box marginY="32px">
       <VStack spacing="32px">
         <VStack spacing="16px">
-          <Heading
-            className={fontStyles.blueScreen}
-            color="green.500"
-            as="h1"
-            size="4xl"
-          >
-            GEARFRAME
-          </Heading>
           {logoUrl ? (
             <Image
               className={logoStyles.animatedLogo}

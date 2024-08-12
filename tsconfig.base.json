@@ -15,10 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gearframe.dev/utils": ["libs/gearframe/utils/src/index.ts"],
-      "@/fonts": ["apps/gearframe/src/app/styles/fonts/fonts"],
-      "@/fonts/styles": ["apps/gearframe/src/app/styles/fonts/fonts.module.css"],
-      "@/theme": ["apps/gearframe/src/app/styles/theme/ThemeProvider"],
+      "@gearframe.dev/components": ["libs/gearframe/components/src/index.ts"],
+      "@gearframe.dev/styles": ["libs/gearframe/styles/src/index.ts"],
+      "@gearframe.dev/utils": ["libs/gearframe/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -13,7 +13,7 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 };
 
-export const theme = extendTheme({
+const theme = extendTheme({
   config,
   styles: {
     global: (props: StyleFunctionProps) => ({
@@ -86,7 +86,7 @@ export const theme = extendTheme({
   },
 });
 
-export default function ThemeProvider({
+export function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;

@@ -1,8 +1,6 @@
 import localFont from 'next/font/local';
 
-const blueScreen = localFont({
+export const blueScreenFont = localFont({
   src: './Blue Screen Personal Use.ttf',
   variable: '--font-blue-screen',
 });
-
-export { blueScreen };
