@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 
-export const blueScreenFont = localFont({
-  src: './Blue Screen Personal Use.ttf',
-  variable: '--font-blue-screen',
+export const monospaceFont = localFont({
+  src: './JetBrainsMono-VariableFont_wght.ttf',
+  variable: '--font-JetBrainsMono',
 });

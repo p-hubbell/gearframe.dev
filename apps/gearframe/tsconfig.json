@@ -1,6 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
     "jsx": "preserve",
     "allowJs": true,
     "esModuleInterop": true,
@@ -19,7 +21,7 @@
     "types": [
       "jest",
       "node"
-    ],
+    ]
   },
   "include": [
     "**/*.ts",

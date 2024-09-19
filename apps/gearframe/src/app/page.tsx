@@ -84,16 +84,14 @@ export default function Index() {
           )}
           <Container>
             <Text
-              className={fontStyles.blueScreen}
-              color="green.500"
+              className={fontStyles.monospaceFont}
               fontSize="2xl"
             >
               an evolving playground for implementing project and design ideas
             </Text>
           </Container>
           <Link
-            className={fontStyles.blueScreen}
-            color="green.500"
+            className={fontStyles.monospaceFont}
             fontSize="xl"
             href="https://github.com/p-hubbell/gearframe.dev"
             isExternal
@@ -103,8 +101,7 @@ export default function Index() {
         </VStack>
         <VStack spacing="16px">
           <Heading
-            className={fontStyles.blueScreen}
-            color="green.500"
+            className={fontStyles.monospaceFont}
             as="h2"
             size="3xl"
           >
